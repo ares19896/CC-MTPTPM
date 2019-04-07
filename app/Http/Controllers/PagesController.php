@@ -124,7 +124,7 @@ class PagesController extends Controller
                 ->where('category.parent_id','=','1')
                 ->select('products.*','pro_details.cpu','pro_details.ram','pro_details.screen','pro_details.vga','pro_details.storage','pro_details.exten_memmory','pro_details.cam1','pro_details.cam2','pro_details.sim','pro_details.connect','pro_details.pin','pro_details.os','pro_details.note')
                 ->paginate(12);
-    		return view('category.banhngot',['data'=>$mobile]);
+    		return view('category.banhngot',['data'=>$banhngot]);
     	} 
         elseif ($cat == 'banhman') {
             // mobile
@@ -134,7 +134,7 @@ class PagesController extends Controller
                 ->where('category.parent_id','=','2')
                 ->select('products.*','pro_details.cpu','pro_details.ram','pro_details.screen','pro_details.vga','pro_details.storage','pro_details.exten_memmory','pro_details.cam1','pro_details.cam2','pro_details.sim','pro_details.connect','pro_details.pin','pro_details.os','pro_details.note')
                 ->paginate(12);
-            return view('category.banhman',['data'=>$lap]);
+            return view('category.banhman',['data'=>$banhman]);
         }
         elseif ($cat == 'keo') {
             // mobile
@@ -144,7 +144,7 @@ class PagesController extends Controller
                 ->where('category.parent_id','=','19')
                 ->select('products.*','pro_details.cpu','pro_details.ram','pro_details.screen','pro_details.vga','pro_details.storage','pro_details.exten_memmory','pro_details.cam1','pro_details.cam2','pro_details.sim','pro_details.connect','pro_details.pin','pro_details.os','pro_details.note')
                 ->paginate(8);
-            return view('category.keo',['data'=>$pc]);
+            return view('category.keo',['data'=>$keo]);
         }
         elseif ($cat == 'tin-tuc') {
             $new =  DB::table('news')
