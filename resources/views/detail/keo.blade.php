@@ -28,7 +28,7 @@
                               <a href="{!!url('uploads/products/details/'.$row->images_url)!!}" title="{!!$data->name!!}" data-gallery>
                                   <img src="{!!url('uploads/products/details/'.$row->images_url)!!}" alt="{!!$data->name!!}" width="30" height="40">
                               </a>
-                            @endforeach                              
+                                                      
                           </div>
                             <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
                             <div id="blueimp-gallery" class="blueimp-gallery">

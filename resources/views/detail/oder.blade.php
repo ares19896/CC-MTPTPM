@@ -25,7 +25,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                  @foreach(Cart::content() as $row)
+                  @foreach(Cart::content() )
                     <tr>
                       <td>{!!$row->id!!}</td>
                       <td><img src="{!!url('uploads/products/'.$row->options->img)!!}" alt="dell" width="80" height="50"></td>

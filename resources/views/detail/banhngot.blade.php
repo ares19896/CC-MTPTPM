@@ -71,7 +71,7 @@
                       <tbody>
                         <tr>
                           <td>Thương hiệu</td>
-                          <td>{!!$data->pro_details->thuonghieu!!}</td>
+                          <td></td>
                         </tr>
                         <tr>
                           <td>Sản xuất tại</td>
@@ -79,7 +79,7 @@
                         </tr>
                         <tr>
                           <td>Kích thước</td>
-                          <td>{!!$data->pro_details->size!!}</td>
+                          <td></td>
                         </tr>
                         <tr>
                           
