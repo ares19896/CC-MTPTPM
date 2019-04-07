@@ -43,7 +43,7 @@
                   @foreach(Cart::content() as $row)
                     <tr>
                       <td>{!!$row->id!!}</td>
-                      <td><img src="{!!url('/public/uploads/products/'.$row->options->img)!!}" alt="dell" width="80" height="50"></td>
+                      <td><img src="{!!url('/uploads/products/'.$row->options->img)!!}" alt="dell" width="80" height="50"></td>
                       <td>{!!$row->name!!}</td>
                       <td class="text-center">                        
                           @if (($row->qty) >1)
@@ -109,21 +109,21 @@
         </div>
         <div class="panel-body no-padding">
         <?php 
-          $banhngot = DB::table('products')
+          $mobile = DB::table('products')
                 ->join('category', 'products.cat_id', '=', 'category.id')
                 ->join('pro_details', 'pro_details.pro_id', '=', 'products.id')
                 ->where('category.parent_id','=','1')
-                ->select('products.*','pro_details.thuonghieu','pro_details.sanxuat','pro_details.size')
+                ->select('products.*','pro_details.cpu','pro_details.ram','pro_details.screen','pro_details.vga','pro_details.storage','pro_details.exten_memmory','pro_details.cam1','pro_details.cam2','pro_details.sim','pro_details.connect','pro_details.pin','pro_details.os','pro_details.note')
                 ->orderBy('products.created_at', 'desc')
                 ->paginate(2); 
 
         ?>
-        @foreach($banhngot as $row)
+        @foreach($mobile as $row)
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
             <div class="thumbnail mobile">              
               <div class="bt">
                 <div class="image-m pull-left">
-                  <img class="img-responsive" src="{!!url('/public/uploads/products/'.$row->images)!!}" alt="{!!$row->name!!}">
+                  <img class="img-responsive" src="{!!url('/uploads/products/'.$row->images)!!}" alt="{!!$row->name!!}">
                 </div>
                 <div class="intro pull-right">
                   <h1><small class="title-mobile">{!!$row->name!!}</small></h1>
@@ -151,10 +151,11 @@
                   @endif 
                     <li><span class="glyphicon glyphicon-ok-sign"></span>Cài đặt phần miềm, tải nhạc - ứng dụng miến phí</li> 
                   <span class="label label-warning">Cấu Hình Nổi bật</span> 
-                  <li><strong>CPU</strong> : <i>  {!!$row->thuonghieu!!}</i></li>
-                  <li><strong>Màn Hình</strong> : <i>{!!$row->size!!} </i></li> 
-                  
-                  
+                  <li><strong>CPU</strong> : <i>  {!!$row->cpu!!}</i></li>
+                  <li><strong>Màn Hình</strong> : <i>{!!$row->screen!!} </i></li> 
+                  <li><strong>Camera</strong> : Trước  <i>{!!$row->cam1!!}</i> Sau <i>{!!$row->cam2!!}</i></li> 
+                  <li><strong>HĐH</strong> :<i> {!!$row->os!!} </i> <strong> Bộ nhớ trong</strong> :<i> {!!$row->storage!!} </i></li> 
+                  <li><strong>Pin</strong> :<i> {!!$row->pin!!}</i></li>
                 </a>
               </div>
                 <span class="btn label-warning"><strong>{!!number_format($row->price)!!}</strong>Vnd </span>

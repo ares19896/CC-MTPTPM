@@ -19,7 +19,7 @@
                   <div class="row">
                     <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
                       <div class="img-box">
-                        <img class="img-responsive img-mobile" src="{!!url('public/uploads/products/'.$data->images)!!}" alt="img responsive">
+                        <img class="img-responsive img-mobile" src="{!!url('/uploads/products/'.$data->images)!!}" alt="img responsive">
                       </div>
                       <div class="img-slide">
                                                
@@ -71,18 +71,19 @@
                       <tbody>
                         <tr>
                           <td>Thương hiệu</td>
-                          <td>{!!$data->pro_details->thuonghieu!!}</td>
+                          <td>{!!$data->pro_details->screen!!}</td>
                         </tr>
                         <tr>
                           <td>Sản xuất tại</td>
-                          <td>{!!$data->pro_details->sanxuat!!}</td>
+                          <td>{!!$data->pro_details->os!!}</td>
                         </tr>
                         <tr>
                           <td>Kích thước</td>
-                          <td>{!!$data->pro_details->size!!}</td>
+                          <td>{!!$data->pro_details->cam1!!}</td>
                         </tr>
                         <tr>
-                          
+                          <td>SKU</td>
+                          <td>{!!$data->pro_details->cam2!!}</td>
                         </tr>
                       </tbody>
                     </table>
@@ -133,7 +134,7 @@
                 ->join('category', 'products.cat_id', '=', 'category.id')
                 ->join('pro_details', 'pro_details.pro_id', '=', 'products.id')
                 ->where('category.parent_id','=','1')
-                ->select('products.*','pro_details.thuonghieu','pro_details.sanxuat','pro_details.size')
+                ->select('products.*','pro_details.cpu','pro_details.ram','pro_details.screen','pro_details.vga','pro_details.storage','pro_details.exten_memmory','pro_details.cam1','pro_details.cam2','pro_details.sim','pro_details.connect','pro_details.pin','pro_details.os','pro_details.note')
                 ->orderBy('products.created_at', 'desc')
                 ->paginate(2); 
 
@@ -143,7 +144,7 @@
             <div class="thumbnail mobile">              
               <div class="bt">
                 <div class="image-m pull-left">
-                  <img class="img-responsive" src="{!!url('public/uploads/products/'.$row->images)!!}" alt="{!!$row->name!!}">
+                  <img class="img-responsive" src="{!!url('/uploads/products/'.$row->images)!!}" alt="{!!$row->name!!}">
                 </div>
                 <div class="intro pull-right">
                   <h1><small class="title-mobile">{!!$row->name!!}</small></h1>
