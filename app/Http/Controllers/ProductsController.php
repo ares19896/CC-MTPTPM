@@ -53,8 +53,9 @@ class ProductsController extends Controller
     	$pro->intro = $rq->txtintro;
     	$pro->promo1 = $rq->txtpromo1;
     	$pro->promo2 = $rq->txtpromo2;
-    	
-    	
+    	$pro->promo3 = $rq->txtpromo3;
+    	$pro->packet = $rq->txtpacket;
+    	$pro->r_intro = $rq->txtre_Intro;
     	$pro->review = $rq->txtReview;
     	$pro->tag = $rq->txttag;
     	$pro->price = $rq->txtprice;
@@ -71,16 +72,39 @@ class ProductsController extends Controller
 
     	$detail = new Pro_details();
 
-    	$detail->thuonghieu = $rq->txtThuonghieu;
-    	$detail->sanxuat = $rq->txtSanxuat;
-    	$detail->size = $rq->txtSize;
-    	
+    	$detail->cpu = $rq->txtCpu;
+    	$detail->ram = $rq->txtRam;
+    	$detail->screen = $rq->txtScreen;
+    	$detail->vga = $rq->txtVga;
+    	$detail->storage = $rq->txtStorage;
+    	$detail->exten_memmory =$rq->txtExtend;
+    	$detail->cam1 = $rq->txtCam1;
+    	$detail->cam2 = $rq->txtCam2;
+    	$detail->sim = $rq->txtSIM;
+    	$detail->connect = $rq->txtConnect;
+    	$detail->pin = $rq->txtPin;
+    	$detail->os = $rq->txtOs;
+        $detail->note = $rq->txtNote;
     	$detail->pro_id = $pro_id;
 
-        
-        
-
-       
+        if ($rq->txtCam1=='') {
+            $detail->cam1='không có';
+        }
+        if ($rq->txtCam2=='') {
+            $detail->cam2='không có';
+        }
+        if ($rq->exten_memmory =='') {
+            $detail->exten_memmory= $rq->txtCase;
+        }
+        if ($rq->pin =='') {
+            $detail->pin= 'Không có';
+        }
+         if ($rq->sim =='') {
+            $detail->sim= 'Không có';
+        }
+         if ($rq->note =='') {
+            $detail->note= 'Không có';
+        }
 
     	$detail->created_at = new datetime;
     	$detail->save();    	
@@ -131,15 +155,15 @@ class ProductsController extends Controller
     	if ($p_id == 1) {
             $cat= Category::where('parent_id', '1')->get();
             $pro = Products::where('id',$id)->first();
-            return view('back-end.products.edit-banhngot',['pro'=>$pro,'cat'=>$cat,'loai'=>'Điện thoại']);    
+            return view('back-end.products.edit-mobile',['pro'=>$pro,'cat'=>$cat,'loai'=>'Điện thoại']);    
         } elseif ($p_id ==2) {
             $cat= Category::where('parent_id', 2)->get();
             $pro = Products::where('id',$id)->first();
-            return view('back-end.products.edit-banhngot',['pro'=>$pro,'cat'=>$cat,'loai'=>'Laptop']);       
+            return view('back-end.products.edit-mobile',['pro'=>$pro,'cat'=>$cat,'loai'=>'Laptop']);       
         } elseif ($p_id ==19) {
             $cat= Category::where('parent_id', 19)->get();
             $pro = Products::where('id',$id)->first();
-            return view('back-end.products.edit-banhngot',['pro'=>$pro,'cat'=>$cat,'loai'=>$p_id]);     
+            return view('back-end.products.edit-mobile',['pro'=>$pro,'cat'=>$cat,'loai'=>$p_id]);     
         }
     }
     public function postedit($loai,$id,EditProductsRequest $rq)
@@ -151,7 +175,8 @@ class ProductsController extends Controller
         $pro->intro = $rq->txtintro;
         $pro->promo1 = $rq->txtpromo1;
         $pro->promo2 = $rq->txtpromo2;
-        
+        $pro->promo3 = $rq->txtpromo3;
+        $pro->packet = $rq->txtpacket;
         $pro->r_intro = $rq->txtre_Intro;
         $pro->review = $rq->txtReview;
         $pro->tag = $rq->txttag;
@@ -174,10 +199,16 @@ class ProductsController extends Controller
         }       
         $pro->save(); 
         
-        $pro->pro_details->thuonghieu = $rq->txtThuonghieu;
-        $pro->pro_details->sanxuat = $rq->txtSanxuat;
-        $pro->pro_details->size = $rq->txtSize;
-        
+        $pro->pro_details->cpu = $rq->txtCpu;
+        $pro->pro_details->ram = $rq->txtRam;
+        $pro->pro_details->screen = $rq->txtScreen;
+        $pro->pro_details->vga = $rq->txtVga;
+        $pro->pro_details->storage = $rq->txtStorage;
+        $pro->pro_details->exten_memmory =$rq->txtExtend;
+        $pro->pro_details->connect = $rq->txtConnect;
+        $pro->pro_details->cam1 = $rq->txtCam1;
+        $pro->pro_details->cam2 = $rq->txtCam2;
+
         if ($rq->txtSIM =='') {
             $pro->pro_details->sim= 'Không có';
         } else {

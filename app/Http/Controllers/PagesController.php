@@ -18,27 +18,27 @@ class PagesController extends Controller
 {
     public function index()
     {
-        
-        $banh = DB::table('products')
+        // mobile
+        $mobile = DB::table('products')
                 ->join('category', 'products.cat_id', '=', 'category.id')
                 ->join('pro_details', 'pro_details.pro_id', '=', 'products.id')
                 ->where('category.parent_id','=','1')
-                ->select('products.*','pro_details.thuonghieu','pro_details.sanxuat','pro_details.size')
+                ->select('products.*','pro_details.cpu','pro_details.ram','pro_details.screen','pro_details.vga','pro_details.storage','pro_details.exten_memmory','pro_details.cam1','pro_details.cam2','pro_details.sim','pro_details.connect','pro_details.pin','pro_details.os','pro_details.note')
                 ->paginate(9);
-        $banhman = DB::table('products')
-                ->join('category', 'products.cat_id', '=', 'category.id')
-                ->join('pro_details', 'pro_details.pro_id', '=', 'products.id')
-                ->where('category.parent_id','=','3')
-                ->select('products.*','pro_details.thuonghieu','pro_details.sanxuat','pro_details.size')
-                ->paginate(6);
-        $keo = DB::table('products')
+        $lap = DB::table('products')
                 ->join('category', 'products.cat_id', '=', 'category.id')
                 ->join('pro_details', 'pro_details.pro_id', '=', 'products.id')
                 ->where('category.parent_id','=','2')
-                ->select('products.*','pro_details.thuonghieu','pro_details.sanxuat','pro_details.size')
+                ->select('products.*','pro_details.cpu','pro_details.ram','pro_details.screen','pro_details.vga','pro_details.storage','pro_details.exten_memmory','pro_details.cam1','pro_details.cam2','pro_details.sim','pro_details.connect','pro_details.pin','pro_details.os','pro_details.note')
+                ->paginate(6);
+        $pc = DB::table('products')
+                ->join('category', 'products.cat_id', '=', 'category.id')
+                ->join('pro_details', 'pro_details.pro_id', '=', 'products.id')
+                ->where('category.parent_id','=','19')
+                ->select('products.*','pro_details.cpu','pro_details.ram','pro_details.screen','pro_details.vga','pro_details.storage','pro_details.exten_memmory','pro_details.cam1','pro_details.cam2','pro_details.sim','pro_details.connect','pro_details.pin','pro_details.os','pro_details.note')
                 ->paginate(4);
 
-    	return view('home',['banhngot'=>$banh,'banhman'=>$banhman,'keo'=>$keo]);//sưa.
+    	return view('home',['banhngot'=>$mobile,'banhman'=>$lap,'keo'=>$pc]);//sưa.
     }
     public function addcart($id)
     {
@@ -121,33 +121,33 @@ class PagesController extends Controller
     {
     	if ($cat == 'banhngot') {
             // mobile->banhngot
-            $banh = DB::table('products')
+            $mobile = DB::table('products')
                 ->join('category', 'products.cat_id', '=', 'category.id')
                 ->join('pro_details', 'pro_details.pro_id', '=', 'products.id')
                 ->where('category.parent_id','=','1')
-                ->select('products.*','pro_details.thuonghieu','pro_details.sanxuat','pro_details.size')
+                ->select('products.*','pro_details.cpu','pro_details.ram','pro_details.screen','pro_details.vga','pro_details.storage','pro_details.exten_memmory','pro_details.cam1','pro_details.cam2','pro_details.sim','pro_details.connect','pro_details.pin','pro_details.os','pro_details.note')
                 ->paginate(12);
-    		return view('category.banhngot',['data'=>$banh]);
+    		return view('category.banhngot',['data'=>$mobile]);
     	} 
         elseif ($cat == 'banhman') {
             // mobile
-            $banhman = DB::table('products')
-                ->join('category', 'products.cat_id', '=', 'category.id')
-                ->join('pro_details', 'pro_details.pro_id', '=', 'products.id')
-                ->where('category.parent_id','=','3')
-                ->select('products.*','pro_details.thuonghieu','pro_details.sanxuat','pro_details.size')
-                ->paginate(12);
-            return view('category.banhman',['data'=>$banhman]);
-        }
-        elseif ($cat == 'keo') {
-            // mobile
-        $keo = DB::table('products')
+            $lap = DB::table('products')
                 ->join('category', 'products.cat_id', '=', 'category.id')
                 ->join('pro_details', 'pro_details.pro_id', '=', 'products.id')
                 ->where('category.parent_id','=','2')
-                ->select('products.*','pro_details.thuonghieu','pro_details.sanxuat','pro_details.size')
+                ->select('products.*','pro_details.cpu','pro_details.ram','pro_details.screen','pro_details.vga','pro_details.storage','pro_details.exten_memmory','pro_details.cam1','pro_details.cam2','pro_details.sim','pro_details.connect','pro_details.pin','pro_details.os','pro_details.note')
+                ->paginate(12);
+            return view('category.banhman',['data'=>$lap]);
+        }
+        elseif ($cat == 'keo') {
+            // mobile
+        $pc = DB::table('products')
+                ->join('category', 'products.cat_id', '=', 'category.id')
+                ->join('pro_details', 'pro_details.pro_id', '=', 'products.id')
+                ->where('category.parent_id','=','19')
+                ->select('products.*','pro_details.cpu','pro_details.ram','pro_details.screen','pro_details.vga','pro_details.storage','pro_details.exten_memmory','pro_details.cam1','pro_details.cam2','pro_details.sim','pro_details.connect','pro_details.pin','pro_details.os','pro_details.note')
                 ->paginate(8);
-            return view('category.keo',['data'=>$keo]);
+            return view('category.keo',['data'=>$pc]);
         }
         elseif ($cat == 'tin-tuc') {
             $new =  DB::table('news')
@@ -169,11 +169,11 @@ class PagesController extends Controller
             $new = News::where('id',$id)->first();
             return view('detail.news',['data'=>$new,'slug'=>$slug]);
         } elseif ($cat =='banhngot') {
-            $banh = Products::where('id',$id)->first();//sửa mobile->banhngot
-            if (empty($banh)) {
+            $mobile = Products::where('id',$id)->first();//sửa mobile->banhngot
+            if (empty($mobile)) {
                 return view ('errors.503');
                 } else {
-                   return view ('detail.banhngot',['data'=>$banh,'slug'=>$slug]);
+                   return view ('detail.banhngot',['data'=>$mobile,'slug'=>$slug]);
                }
         }
         elseif ($cat =='banhman') {
@@ -194,10 +194,5 @@ class PagesController extends Controller
         } else {
             return redirect()->route('index');
         }
-    }
-    public function getSearch (Request $req){
-        $pro=Products::where('name','like','%'.$req->key.'%')
-                ->get();
-        return view('category.search',compact('pro'));
     }
 }
