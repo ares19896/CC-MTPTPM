@@ -19,22 +19,22 @@ class PagesController extends Controller
     public function index()
     {
         // mobile
-        $mobile = DB::table('products')
+        $banhman = DB::table('products')
                 ->join('category', 'products.cat_id', '=', 'category.id')
                 ->join('pro_details', 'pro_details.pro_id', '=', 'products.id')
-                ->where('category.parent_id','=','1')
+                ->where('category.parent_id','=','01')
                 ->select('products.*','pro_details.cpu','pro_details.ram','pro_details.screen','pro_details.vga','pro_details.storage','pro_details.exten_memmory','pro_details.cam1','pro_details.cam2','pro_details.sim','pro_details.connect','pro_details.pin','pro_details.os','pro_details.note')
                 ->paginate(9);
-        $lap = DB::table('products')
+        $keo = DB::table('products')
                 ->join('category', 'products.cat_id', '=', 'category.id')
                 ->join('pro_details', 'pro_details.pro_id', '=', 'products.id')
-                ->where('category.parent_id','=','2')
+                ->where('category.parent_id','=','02')
                 ->select('products.*','pro_details.cpu','pro_details.ram','pro_details.screen','pro_details.vga','pro_details.storage','pro_details.exten_memmory','pro_details.cam1','pro_details.cam2','pro_details.sim','pro_details.connect','pro_details.pin','pro_details.os','pro_details.note')
                 ->paginate(6);
-        $pc = DB::table('products')
+        $banhngot = DB::table('products')
                 ->join('category', 'products.cat_id', '=', 'category.id')
                 ->join('pro_details', 'pro_details.pro_id', '=', 'products.id')
-                ->where('category.parent_id','=','19')
+                ->where('category.parent_id','=','03')
                 ->select('products.*','pro_details.cpu','pro_details.ram','pro_details.screen','pro_details.vga','pro_details.storage','pro_details.exten_memmory','pro_details.cam1','pro_details.cam2','pro_details.sim','pro_details.connect','pro_details.pin','pro_details.os','pro_details.note')
                 ->paginate(4);
 
