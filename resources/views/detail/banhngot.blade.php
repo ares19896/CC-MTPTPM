@@ -1,4 +1,4 @@
-@extends('layouts.new-master')
+﻿@extends('layouts.new-master')
 @section('content')
 	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <h3 class="panel-title">
@@ -140,7 +140,7 @@
 
         ?>
         @foreach($banhngot as $row)
-          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 no-padding">
+        
             <div class="thumbnail mobile">              
               <div class="bt">
                 <div class="image-m pull-left">
