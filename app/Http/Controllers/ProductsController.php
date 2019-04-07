@@ -205,17 +205,7 @@ class ProductsController extends Controller
                 }
                $dt->delete();                              
             }
-            foreach ($df as $row) {
-                $img_detail = new Detail_img();
-                if (isset($row)) {
-                    $name_img= time().'_'.$row->getClientOriginalName();
-                    $img_detail->images_url = $name_img;
-                    $img_detail->pro_id = $id;
-                    $img_detail->created_at = new datetime;
-                    $row->move('uploads/products/details/',$name_img);
-                    $img_detail->save();
-                }
-            }
+            
         }
     $pro->pro_details->save();
     return redirect('admin/sanpham/all')

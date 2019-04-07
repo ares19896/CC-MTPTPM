@@ -31,12 +31,7 @@ class PagesController extends Controller
                 ->where('category.parent_id','=','3')
                 ->select('products.*','pro_details.thuonghieu','pro_details.sanxuat','pro_details.size')
                 ->paginate(6);
-        $keo = DB::table('products')
-                ->join('category', 'products.cat_id', '=', 'category.id')
-                ->join('pro_details', 'pro_details.pro_id', '=', 'products.id')
-                ->where('category.parent_id','=','2')
-                ->select('products.*','pro_details.thuonghieu','pro_details.sanxuat','pro_details.size')
-                ->paginate(4);
+        
 
     	return view('home',['banhngot'=>$banh,'banhman'=>$banhman,'keo'=>$keo]);//sưa.
     }
