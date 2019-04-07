@@ -53,7 +53,8 @@ class PagesController extends Controller
          $qt = $qty+1;
          Cart::update($id, $qt);
          return redirect()->route('getcart');
-      } elseif ($dk=='down') {
+      } else
+      if ($dk=='down') {
          $qt = $qty-1;
          Cart::update($id, $qt);
          return redirect()->route('getcart');
@@ -66,11 +67,7 @@ class PagesController extends Controller
      Cart::remove($id);
      return redirect()->route('getcart');
     }
-    public function xoa()
-    {
-        Cart::destroy();   
-        return redirect()->route('index');   
-    }
+    
     public function getcart()
     {   
     	return view ('detail.card')
