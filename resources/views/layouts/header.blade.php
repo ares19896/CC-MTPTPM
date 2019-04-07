@@ -7,19 +7,19 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="{!!url('public/images/logo.png')!!}" alt="logo" width="50" height="20">
+    <link rel="icon" href="{!!url('/images/logo.png')!!}" alt="logo" width="50" height="20">
 
     <title>Hệ thông bán sỉ và lẻ bánh kẹo trực tuyến trực tuyến </title>
 
     <!-- Bootstrap core CSS -->
-    <link href="{!!url('public/bootstrap/css/bootstrap.min.css')!!}" rel="stylesheet">
+    <link href="{!!url('/bootstrap/css/bootstrap.min.css')!!}" rel="stylesheet">
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    {{-- <link href="{{ elixir('public/css/app.css') }}" rel="stylesheet"> --}}
+    {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
     <style>
         body {
@@ -31,20 +31,20 @@
         }
     </style>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    {{-- <link href="{!!url('public/bootstrap/css/ie10-viewport-bug-workaround.css')!!}" rel="stylesheet"> --}}
+    {{-- <link href="{!!url('/bootstrap/css/ie10-viewport-bug-workaround.css')!!}" rel="stylesheet"> --}}
 
     <!-- Custom styles for this template -->
-    <link href="{!!url('public/front-end/front-end-style.css')!!}" rel="stylesheet">
-    <link rel='stylesheet' id='camera-css'  href="{!!url('public/css/camera.css')!!}" type='text/css' media='all'>
-    <link rel='stylesheet' id='camera-css' href="{!!url('public/css/cam-1.css')!!}" type='text/css' media='all'>
+    <link href="{!!url('/front-end/front-end-style.css')!!}" rel="stylesheet">
+    <link rel='stylesheet' id='camera-css'  href="{!!url('/css/camera.css')!!}" type='text/css' media='all'>
+    <link rel='stylesheet' id='camera-css' href="{!!url('/css/cam-1.css')!!}" type='text/css' media='all'>
 
-    <link href="{!!asset('public/css/blueimp-gallery.css')!!}" rel="stylesheet">
+    <link href="{!!asset('css/blueimp-gallery.css')!!}" rel="stylesheet">
     <!-- <link rel='stylesheet' id='camera-css'  href='public/css/camera.css' type='text/css' media='all'>  -->
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    {{-- <script type='text/javascript' src="{!!url('public/bootstrap/js/ie-emulation-modes-warning.js')!!}"></script> --}}
-    <script type='text/javascript' src="{!!url('/public/js/ads.js')!!}"></script> 
+    {{-- <script type='text/javascript' src="{!!url('/bootstrap/js/ie-emulation-modes-warning.js')!!}"></script> --}}
+    <script type='text/javascript' src="{!!url('/js/ads.js')!!}"></script> 
 
     <!-- <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBkGb2F20z6IkI0BzzW0OdVv0ScnBJUXpw =false"></script> -->
 
