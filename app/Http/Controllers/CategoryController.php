@@ -49,7 +49,7 @@ class CategoryController extends Controller
       ->with(['flash_level'=>'result_msg','flash_massage'=>' Đã sửa']);
 
    }
-   public function getdel($id)
+   public function getdelete($id)
    {
       $parent_id = category::where('parent_id',$id)->count();
       if ($parent_id==0) {
