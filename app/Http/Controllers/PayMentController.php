@@ -62,7 +62,7 @@ class PayMentController extends Controller
         Session::forget('payment_id');
 
         $execution = new PaymentExecution();
-        $execution->setPayerId($_GET['PayerID']);
+        $execution->setPayerId($_GET['prayerId']);
         $payment = payment::get($payment_id,$this->apiContext);
 
         try {
@@ -151,7 +151,7 @@ class PayMentController extends Controller
         // You can also specify additional details
         // such as shipping, tax.
         $amount = new Amount();
-        $amount->setCurrency("USD")
+        $amount->setCurrency("VND")
             ->setTotal(Cart::subtotal()/21000);
             // ->setDetails($details);
         // ### Transaction
