@@ -1,4 +1,4 @@
-@extends('layouts.new-master')
+﻿@extends('layouts.new-master')
 @section('content')
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <h3 class="panel-title">
@@ -152,7 +152,7 @@
                     <li><span class="glyphicon glyphicon-ok-sign"></span>Cài đặt phần miềm, tải nhạc - ứng dụng miến phí</li> 
                   <span class="label label-warning">Cấu Hình Nổi bật</span> 
                   <li><strong>CPU</strong> : <i>  {!!$row->cpu!!}</i></li>
-                  <li><strong>Màn Hình</strong> : <i>{!!$row->screen!!} </i></li> 
+                  <li><strong>Màn Hình</strong> :  </i></li> 
                   <li><strong>Camera</strong> : Trước  <i>{!!$row->cam1!!}</i> Sau <i>{!!$row->cam2!!}</i></li> 
                   <li><strong>HĐH</strong> :<i> {!!$row->os!!} </i> <strong> Bộ nhớ trong</strong> :<i> {!!$row->storage!!} </i></li> 
                   <li><strong>Pin</strong> :<i> {!!$row->pin!!}</i></li>

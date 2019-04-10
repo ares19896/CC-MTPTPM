@@ -1,24 +1,9 @@
-
+﻿
     <div class="container-fluid">
       <div class="container">
         <hr>
         <footer>
-          © 2019 - 2020 Công Ty Cổ Phần Bán Lẻ Bánh Kẹo Nhập Khẩu ABC / Địa chỉ: TP. XYZ / GPĐKKD số: 1234 <br>
-          Thiết Kế Bởi : <a href="#" title="" target="#">TEAM</a>
-      </footer>
-      </div>
-    </div>
-    <a id="back-to-top" href="#" class="btn btn-warning btn-lg back-to-top" role="button" title="Click lên đâu trang" data-toggle="tooltip" data-placement="left"><span class="glyphicon glyphicon-chevron-up"></span></a>
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="{!!url('/bootstrap/js/bootstrap.min.js')!!}"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    {{-- <script src="{!!url('/bootstrap/js/ie10-viewport-bug-workaround.js')!!}"></script> --}}
-    <!-- menu js -->
-    <script src="{!!url('/js/menu.js')!!}"></script> 
+          © 2019 - 2021 Công Ty Cổ Phần Bán Lẻ Bánh Kẹo Nhập Khẩu TDNG('/js/menu.js')!!}"></script> 
     <script type='text/javascript' src='{!!url('/js/jquery.easing.1.3.js')!!}'></script> 
     <script type='text/javascript' src='{!!url('/js/camera.min.js')!!}'></script> 
     <script type='text/javascript' src='{!!url('/js/myscript.js')!!}'></script> 

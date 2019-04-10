@@ -31,7 +31,7 @@ class ProductsController extends Controller
     public function getadd($id)
     {
         $loai = Category::where('id',$id)->first();
-        $p_id = $loai->parent_id;
+        
         $p_name = Category::where('id',$p_id)->first();
 		$cat= Category::where('parent_id',$p_id)->get();
 		$pro = Products::all();	
@@ -52,8 +52,7 @@ class ProductsController extends Controller
     	$pro->slug = str_slug($rq->txtname,'-');
     	$pro->intro = $rq->txtintro;
     	$pro->promo1 = $rq->txtpromo1;
-    	$pro->promo2 = $rq->txtpromo2;
-    	$pro->promo3 = $rq->txtpromo3;
+    	
     	$pro->packet = $rq->txtpacket;
     	$pro->r_intro = $rq->txtre_Intro;
     	$pro->review = $rq->txtReview;

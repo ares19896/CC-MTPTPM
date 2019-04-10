@@ -19,22 +19,22 @@ class PagesController extends Controller
     public function index()
     {
         // mobile
-        $mobile = DB::table('products')
+        $banhman = DB::table('products')
                 ->join('category', 'products.cat_id', '=', 'category.id')
                 ->join('pro_details', 'pro_details.pro_id', '=', 'products.id')
-                ->where('category.parent_id','=','1')
+                ->where('category.parent_id','=','01')
                 ->select('products.*','pro_details.cpu','pro_details.ram','pro_details.screen','pro_details.vga','pro_details.storage','pro_details.exten_memmory','pro_details.cam1','pro_details.cam2','pro_details.sim','pro_details.connect','pro_details.pin','pro_details.os','pro_details.note')
                 ->paginate(9);
-        $lap = DB::table('products')
+        $keo = DB::table('products')
                 ->join('category', 'products.cat_id', '=', 'category.id')
                 ->join('pro_details', 'pro_details.pro_id', '=', 'products.id')
-                ->where('category.parent_id','=','2')
+                ->where('category.parent_id','=','02')
                 ->select('products.*','pro_details.cpu','pro_details.ram','pro_details.screen','pro_details.vga','pro_details.storage','pro_details.exten_memmory','pro_details.cam1','pro_details.cam2','pro_details.sim','pro_details.connect','pro_details.pin','pro_details.os','pro_details.note')
                 ->paginate(6);
-        $pc = DB::table('products')
+        $banhngot = DB::table('products')
                 ->join('category', 'products.cat_id', '=', 'category.id')
                 ->join('pro_details', 'pro_details.pro_id', '=', 'products.id')
-                ->where('category.parent_id','=','19')
+                ->where('category.parent_id','=','03')
                 ->select('products.*','pro_details.cpu','pro_details.ram','pro_details.screen','pro_details.vga','pro_details.storage','pro_details.exten_memmory','pro_details.cam1','pro_details.cam2','pro_details.sim','pro_details.connect','pro_details.pin','pro_details.os','pro_details.note')
                 ->paginate(4);
 
@@ -53,7 +53,8 @@ class PagesController extends Controller
          $qt = $qty+1;
          Cart::update($id, $qt);
          return redirect()->route('getcart');
-      } elseif ($dk=='down') {
+      } else
+      if ($dk=='down') {
          $qt = $qty-1;
          Cart::update($id, $qt);
          return redirect()->route('getcart');
@@ -66,11 +67,7 @@ class PagesController extends Controller
      Cart::remove($id);
      return redirect()->route('getcart');
     }
-    public function xoa()
-    {
-        Cart::destroy();   
-        return redirect()->route('index');   
-    }
+    
     public function getcart()
     {   
     	return view ('detail.card')
@@ -127,7 +124,7 @@ class PagesController extends Controller
                 ->where('category.parent_id','=','1')
                 ->select('products.*','pro_details.cpu','pro_details.ram','pro_details.screen','pro_details.vga','pro_details.storage','pro_details.exten_memmory','pro_details.cam1','pro_details.cam2','pro_details.sim','pro_details.connect','pro_details.pin','pro_details.os','pro_details.note')
                 ->paginate(12);
-    		return view('category.banhngot',['data'=>$mobile]);
+    		return view('category.banhngot',['data'=>$banhngot]);
     	} 
         elseif ($cat == 'banhman') {
             // mobile
@@ -137,7 +134,7 @@ class PagesController extends Controller
                 ->where('category.parent_id','=','2')
                 ->select('products.*','pro_details.cpu','pro_details.ram','pro_details.screen','pro_details.vga','pro_details.storage','pro_details.exten_memmory','pro_details.cam1','pro_details.cam2','pro_details.sim','pro_details.connect','pro_details.pin','pro_details.os','pro_details.note')
                 ->paginate(12);
-            return view('category.banhman',['data'=>$lap]);
+            return view('category.banhman',['data'=>$banhman]);
         }
         elseif ($cat == 'keo') {
             // mobile
@@ -147,7 +144,7 @@ class PagesController extends Controller
                 ->where('category.parent_id','=','19')
                 ->select('products.*','pro_details.cpu','pro_details.ram','pro_details.screen','pro_details.vga','pro_details.storage','pro_details.exten_memmory','pro_details.cam1','pro_details.cam2','pro_details.sim','pro_details.connect','pro_details.pin','pro_details.os','pro_details.note')
                 ->paginate(8);
-            return view('category.keo',['data'=>$pc]);
+            return view('category.keo',['data'=>$keo]);
         }
         elseif ($cat == 'tin-tuc') {
             $new =  DB::table('news')

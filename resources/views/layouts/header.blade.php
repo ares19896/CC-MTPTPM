@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -64,8 +64,8 @@
     map = new google.maps.Map(document.getElementById("div_id"), myOptions);
       // Biến text chứa nội dung sẽ được hiển thị
     var text;
-    text= "<b style='color:#00F' " +
-             "style='text-align:center'>CÔNG TY TNHH MyWeb<br />" +
+    text= "<b style='color:#0031F' " +
+             "style='text-align:center'>CÔNG TY Bánh Kẹo TNDG<br />" +
          "<img src='hoangweb-logo.jpg'  /></b>";
        var infowindow = new google.maps.InfoWindow(
         { content: text,
